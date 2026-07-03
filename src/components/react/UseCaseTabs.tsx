@@ -1,15 +1,6 @@
 import * as Tabs from '@radix-ui/react-tabs';
-import { 
-  ShoppingCart, 
-  Heart, 
-  Car, 
-  Laptop, 
-  Package, 
-  UtensilsCrossed,
-  CheckCircle2,
-  AlertCircle,
-  Lightbulb
-} from 'lucide-react';
+import Icon from 'astro-iconset/react';
+import type { Icon as IconName } from 'virtual:astro-iconset';
 
 interface UseCase {
   industry: string;
@@ -24,13 +15,13 @@ interface Props {
   useCases: UseCase[];
 }
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  ShoppingCart,
-  Heart,
-  Car,
-  Laptop,
-  Package,
-  UtensilsCrossed,
+const iconMap: Record<string, IconName> = {
+  ShoppingCart: 'lucide:shopping-cart',
+  Heart: 'lucide:heart',
+  Car: 'lucide:car',
+  Laptop: 'lucide:laptop',
+  Package: 'lucide:package',
+  UtensilsCrossed: 'lucide:utensils-crossed',
 };
 
 export default function UseCaseTabs({ useCases }: Props) {
@@ -42,7 +33,7 @@ export default function UseCaseTabs({ useCases }: Props) {
       <Tabs.List className="flex flex-wrap gap-2 border-b-2 border-gray-200 mb-8 pb-2">
         {industries.map((industry) => {
           const useCase = useCases.find((uc) => uc.industry === industry);
-          const IconComponent = useCase ? iconMap[useCase.iconName] : null;
+          const iconName = useCase ? iconMap[useCase.iconName] : null;
           
           return (
             <Tabs.Trigger
@@ -50,8 +41,8 @@ export default function UseCaseTabs({ useCases }: Props) {
               value={industry}
               className="group px-6 py-3 text-sm font-semibold text-gray-600 border-b-2 border-transparent hover:text-blue-600 hover:border-blue-300 transition-all duration-200 data-[state=active]:text-blue-600 data-[state=active]:border-blue-600 flex items-center gap-2"
             >
-              {IconComponent && (
-                <IconComponent className="w-4 h-4 group-data-[state=active]:text-blue-600" />
+              {iconName && (
+                <Icon name={iconName} className="w-4 h-4 group-data-[state=active]:text-blue-600" />
               )}
               {industry}
             </Tabs.Trigger>
@@ -63,7 +54,7 @@ export default function UseCaseTabs({ useCases }: Props) {
         const useCase = useCases.find((uc) => uc.industry === industry);
         if (!useCase) return null;
 
-        const IconComponent = iconMap[useCase.iconName];
+        const iconName = iconMap[useCase.iconName];
 
         return (
           <Tabs.Content 
@@ -84,8 +75,8 @@ export default function UseCaseTabs({ useCases }: Props) {
                   <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
                   <div className="absolute top-6 left-6">
                     <div className="w-16 h-16 rounded-xl bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                      {IconComponent && (
-                        <IconComponent className="w-8 h-8 text-blue-600" />
+                      {iconName && (
+                        <Icon name={iconName} className="w-8 h-8 text-blue-600" />
                       )}
                     </div>
                   </div>
@@ -102,7 +93,7 @@ export default function UseCaseTabs({ useCases }: Props) {
                     {/* Challenge */}
                     <div className="bg-red-50 border-l-4 border-red-500 rounded-r-lg p-5">
                       <div className="flex items-start gap-3">
-                        <AlertCircle className="w-6 h-6 text-red-600 shrink-0 mt-0.5" />
+                        <Icon name="lucide:circle-alert" className="w-6 h-6 text-red-600 shrink-0 mt-0.5" />
                         <div>
                           <h3 className="text-lg font-bold text-red-900 mb-2">
                             Challenge
@@ -117,7 +108,7 @@ export default function UseCaseTabs({ useCases }: Props) {
                     {/* Solution */}
                     <div className="bg-blue-50 border-l-4 border-blue-500 rounded-r-lg p-5">
                       <div className="flex items-start gap-3">
-                        <Lightbulb className="w-6 h-6 text-blue-600 shrink-0 mt-0.5" />
+                        <Icon name="lucide:lightbulb" className="w-6 h-6 text-blue-600 shrink-0 mt-0.5" />
                         <div>
                           <h3 className="text-lg font-bold text-blue-900 mb-2">
                             Solution
@@ -132,7 +123,7 @@ export default function UseCaseTabs({ useCases }: Props) {
                     {/* Results */}
                     <div>
                       <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                        <Icon name="lucide:circle-check" className="w-5 h-5 text-green-600" />
                         Results
                       </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -141,7 +132,7 @@ export default function UseCaseTabs({ useCases }: Props) {
                             key={idx}
                             className="flex items-start gap-3 bg-green-50 rounded-lg p-4 border border-green-100"
                           >
-                            <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
+                            <Icon name="lucide:circle-check" className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                             <span className="text-gray-800 font-medium text-sm leading-relaxed">
                               {result}
                             </span>

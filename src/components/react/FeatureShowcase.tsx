@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Warehouse, Truck, Package, BarChart3, Shield, Headphones } from 'lucide-react';
+import Icon from 'astro-iconset/react';
 
 import warehouseImg from '@assets/photo-1553413077-190dd305871c.jpg';
 import truckImg from '@assets/photo-1601584115197-04ecc0da31d7.jpg';
@@ -10,37 +10,37 @@ import headphonesImg from '@assets/photo-1486312338219-ce68d2c6f44d.jpg';
 
 const features = [
   {
-    icon: Warehouse,
+    icon: 'lucide:warehouse',
     title: 'Advanced Warehousing',
     description: 'Climate-controlled facilities with automated inventory systems and 24/7 security.',
     image: warehouseImg,
   },
   {
-    icon: Truck,
+    icon: 'lucide:truck',
     title: 'Fast Transportation',
     description: 'Multi-modal logistics network ensuring rapid delivery across all destinations.',
     image: truckImg,
   },
   {
-    icon: Package,
+    icon: 'lucide:package',
     title: 'Quality Manufacturing',
     description: 'ISO-certified production with precision engineering and quality control.',
     image: packageImg,
   },
   {
-    icon: BarChart3,
+    icon: 'lucide:bar-chart-3',
     title: 'Real-Time Analytics',
     description: 'Complete supply chain visibility with advanced tracking and reporting.',
     image: barChart3Img,
   },
   {
-    icon: Shield,
+    icon: 'lucide:shield',
     title: 'Secure Operations',
     description: 'Industry-leading security protocols protecting your valuable assets.',
     image: shieldImg,
   },
   {
-    icon: Headphones,
+    icon: 'lucide:headphones',
     title: '24/7 Support',
     description: 'Dedicated teams available around the clock to ensure seamless operations.',
     image: headphonesImg,
@@ -80,7 +80,7 @@ export default function FeatureShowcase() {
                 transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
                 className="absolute top-4 right-4 w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-lg"
               >
-                <feature.icon className="w-6 h-6 text-blue-600" />
+                <Icon name={feature.icon} className="w-6 h-6 text-blue-600" />
               </motion.div>
             </div>
 

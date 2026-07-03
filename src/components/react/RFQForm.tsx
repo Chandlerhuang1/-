@@ -1,6 +1,6 @@
 import * as Label from '@radix-ui/react-label';
 import * as Checkbox from '@radix-ui/react-checkbox';
-import { Check, User, Building2, Briefcase, Warehouse, Factory, Truck, Network, Wrench, Cpu, Calendar, Package } from 'lucide-react';
+import Icon from 'astro-iconset/react';
 
 export default function RFQForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,7 +24,7 @@ export default function RFQForm() {
       <div>
         <div className="flex items-center mb-6">
           <div className="w-10 h-10 rounded-lg bg-linear-to-br from-blue-600 to-teal-600 flex items-center justify-center mr-3">
-            <User className="w-5 h-5 text-white" />
+            <Icon name="lucide:user" className="w-5 h-5 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900">
             Contact Information
@@ -98,7 +98,7 @@ export default function RFQForm() {
       <div className="pt-6 border-t border-gray-200">
         <div className="flex items-center mb-6">
           <div className="w-10 h-10 rounded-lg bg-linear-to-br from-purple-600 to-pink-600 flex items-center justify-center mr-3">
-            <Building2 className="w-5 h-5 text-white" />
+            <Icon name="lucide:building-2" className="w-5 h-5 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900">
             Company Information
@@ -150,7 +150,7 @@ export default function RFQForm() {
       <div className="pt-6 border-t border-gray-200">
         <div className="flex items-center mb-6">
           <div className="w-10 h-10 rounded-lg bg-linear-to-br from-green-600 to-emerald-600 flex items-center justify-center mr-3">
-            <Briefcase className="w-5 h-5 text-white" />
+            <Icon name="lucide:briefcase" className="w-5 h-5 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900">
             Service Requirements
@@ -163,14 +163,13 @@ export default function RFQForm() {
             </Label.Root>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
-                { id: 'warehousing', label: 'Warehousing & Storage', icon: Warehouse },
-                { id: 'manufacturing', label: 'Manufacturing Services', icon: Factory },
-                { id: 'transportation', label: 'Transportation & Distribution', icon: Truck },
-                { id: 'supply-chain', label: 'Supply Chain Management', icon: Network },
-                { id: 'value-added', label: 'Value-Added Services', icon: Wrench },
-                { id: 'technology', label: 'Technology Integration', icon: Cpu },
+                { id: 'warehousing', label: 'Warehousing & Storage', icon: 'lucide:warehouse' },
+                { id: 'manufacturing', label: 'Manufacturing Services', icon: 'lucide:factory' },
+                { id: 'transportation', label: 'Transportation & Distribution', icon: 'lucide:truck' },
+                { id: 'supply-chain', label: 'Supply Chain Management', icon: 'lucide:network' },
+                { id: 'value-added', label: 'Value-Added Services', icon: 'lucide:wrench' },
+                { id: 'technology', label: 'Technology Integration', icon: 'lucide:cpu' },
               ].map((service) => {
-                const IconComponent = service.icon;
                 return (
                   <div
                     key={service.id}
@@ -183,11 +182,11 @@ export default function RFQForm() {
                       className="w-5 h-5 flex items-center justify-center border-2 border-gray-300 rounded data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 transition-colors shrink-0"
                     >
                       <Checkbox.Indicator>
-                        <Check className="w-4 h-4 text-white" />
+                        <Icon name="lucide:check" className="w-4 h-4 text-white" />
                       </Checkbox.Indicator>
                     </Checkbox.Root>
                     <div className="w-8 h-8 rounded-lg bg-gray-100 group-hover:bg-blue-100 flex items-center justify-center shrink-0 transition-colors">
-                      <IconComponent className="w-4 h-4 text-gray-600 group-hover:text-blue-600 transition-colors" />
+                      <Icon name={service.icon as IconName} className="w-4 h-4 text-gray-600 group-hover:text-blue-600 transition-colors" />
                     </div>
                     <Label.Root
                       htmlFor={service.id}
@@ -207,7 +206,7 @@ export default function RFQForm() {
                 htmlFor="timeline"
                 className="flex items-center text-sm font-medium text-gray-700 mb-2"
               >
-                <Calendar className="w-4 h-4 mr-2 text-gray-500" />
+                <Icon name="lucide:calendar" className="w-4 h-4 mr-2 text-gray-500" />
                 Timeline <span className="text-red-500 ml-1">*</span>
               </Label.Root>
               <div className="relative">
@@ -224,7 +223,7 @@ export default function RFQForm() {
                   <option value="6-plus-months">6+ months</option>
                   <option value="flexible">Flexible</option>
                 </select>
-                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                <Icon name="lucide:calendar" className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
             </div>
             <div>
@@ -232,7 +231,7 @@ export default function RFQForm() {
                 htmlFor="volume"
                 className="flex items-center text-sm font-medium text-gray-700 mb-2"
               >
-                <Package className="w-4 h-4 mr-2 text-gray-500" />
+                <Icon name="lucide:package" className="w-4 h-4 mr-2 text-gray-500" />
                 Estimated Monthly Volume
               </Label.Root>
               <div className="relative">
@@ -243,7 +242,7 @@ export default function RFQForm() {
                   placeholder="e.g., 10,000 units"
                   className="w-full px-4 py-2 pl-10 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                 />
-                <Package className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                <Icon name="lucide:package" className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import * as Accordion from '@radix-ui/react-accordion';
-import { ChevronDown } from 'lucide-react';
+import Icon from 'astro-iconset/react';
 
 interface Capability {
   title: string;
@@ -39,7 +39,7 @@ export default function CapabilityAccordion({ capabilities }: Props) {
                   </p>
                 </div>
               </div>
-              <ChevronDown className="w-5 h-5 text-gray-500 transition-transform duration-200 group-data-[state=open]:rotate-180 shrink-0" />
+              <Icon name="lucide:chevron-down" className="w-5 h-5 text-gray-500 transition-transform duration-200 group-data-[state=open]:rotate-180 shrink-0" />
             </Accordion.Trigger>
           </Accordion.Header>
           <Accordion.Content className="px-6 py-5 border-t border-gray-200 bg-gray-50">

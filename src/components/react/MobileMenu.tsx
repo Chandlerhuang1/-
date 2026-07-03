@@ -1,5 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog';
-import { Menu, X } from 'lucide-react';
+import Icon from 'astro-iconset/react';
 import { NAVIGATION } from '../../config/site';
 
 export default function MobileMenu() {
@@ -10,7 +10,7 @@ export default function MobileMenu() {
           className="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
           aria-label="Toggle menu"
         >
-          <Menu className="h-6 w-6" />
+          <Icon name="lucide:menu" className="h-6 w-6" />
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
@@ -45,7 +45,7 @@ export default function MobileMenu() {
               className="absolute top-4 right-4 p-2 text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
               aria-label="Close menu"
             >
-              <X className="h-6 w-6" />
+              <Icon name="lucide:x" className="h-6 w-6" />
             </button>
           </Dialog.Close>
         </Dialog.Content>
