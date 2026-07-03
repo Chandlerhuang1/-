@@ -2,10 +2,10 @@
 
 A modern, professional Astro.js template for logistics, manufacturing, and supply chain companies. Built with React, Tailwind CSS, and TypeScript.
 
-![Astro](https://img.shields.io/badge/Astro-5.16.0-FF5D01?logo=astro&logoColor=white)
-![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react&logoColor=black)
+![Astro](https://img.shields.io/badge/Astro-7.0.6-FF5D01?logo=astro&logoColor=white)
+![React](https://img.shields.io/badge/React-19.2.7-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.17-38B2AC?logo=tailwind-css&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.3.2-38B2AC?logo=tailwind-css&logoColor=white)
 
 ## 🖼️ Preview
 
@@ -25,6 +25,7 @@ A modern, professional Astro.js template for logistics, manufacturing, and suppl
 - 🎯 **SEO Optimized** - Meta tags and semantic HTML
 - 🎭 **Smooth Animations** - Powered by Motion library
 - 🎨 **Modern UI** - Beautiful gradient designs and components
+- 🔣 **Icon System** - Managed with [astro-iconset](https://www.npmjs.com/package/astro-iconset)
 
 ## 📦 Pages Included
 
