@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: Chandlerhuang1/- # 你的 GitHub 仓库地址 (用户名/仓库名)
+  branch: master # 要提交的代码分支
+
+media_folder: "public/uploads" # 媒体文件上传后保存的目录
+public_folder: "/uploads" # 前端读取图片的路径
+
+collections:
+  # 示例：配置一个"文章/产品"可视化管理板块
+  - name: "blog"
+    label: "文章列表"
+    folder: "src/content/blog" # 内容存储的文件夹
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布时间", name: "date", widget: "datetime" }
+      - { label: "封面图", name: "image", widget: "image" }
+      - { label: "正文内容", name: "body", widget: "markdown" }
