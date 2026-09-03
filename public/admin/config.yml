@@ -1,7 +1,9 @@
 backend:
   name: github
-  repo: Chandlerhuang1/- # 你的 GitHub 仓库地址 (用户名/仓库名)
-  branch: master # 要提交的代码分支
+  repo: Chandlerhuang1/-
+  branch: master
+  base_url: https://lingering-mode-b29e.hx13401201412.workers.dev
+  auth_endpoint: /auth
 
 media_folder: "public/uploads" # 媒体文件上传后保存的目录
 public_folder: "/uploads" # 前端读取图片的路径
